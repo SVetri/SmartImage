@@ -25,9 +25,16 @@ public class MainActivity extends ActionBarActivity {
 
         captureImage = (Button) this.findViewById(R.id.captureImage);
         capturedImage = (ImageView) this.findViewById(R.id.capturedImage);
+
+        captureImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                captureImageFromCamera();
+            }
+        });
     }
 
-    public void takeImageFromCamera(View view) {
+    public void captureImageFromCamera() {
         Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(cameraIntent, CAMERA_REQUEST);
     }
