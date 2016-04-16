@@ -22,7 +22,7 @@ public class ImageUtilities {
     static final String EXTRACT_ERROR = "Error";
 
     //Save image to SD Card with filename as date and time of image capture
-    public static String saveImage(Bitmap bm){
+    public static String saveImage(Bitmap bm, Context con){
         String root = Environment.getExternalStorageDirectory().toString();
         String baseDirectory = root + "/SmImage";
         File myDir = new File(baseDirectory);
@@ -49,7 +49,9 @@ public class ImageUtilities {
             e.printStackTrace();
         }
 
-        return baseDirectory+"/"+fname;
+        String fpath = baseDirectory+"/"+fname;
+        galleryAddPic(fpath,con);
+        return fpath;
     }
 
     //Adds the JSONObject of context data into the JPEG file as an exif tag's data
