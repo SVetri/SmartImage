@@ -62,6 +62,7 @@ public class MainActivity extends ActionBarActivity {
         double longitude = location.getLongitude();
         double latitude = location.getLatitude();
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+
         ArrayList<String> res = new ArrayList<String>();
         res.add(String.valueOf(latitude));
         res.add(String.valueOf(longitude));
