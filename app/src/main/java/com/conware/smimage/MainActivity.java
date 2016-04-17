@@ -1,7 +1,10 @@
 package com.conware.smimage;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.location.Location;
+import android.location.LocationManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -9,6 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -44,7 +52,21 @@ public class MainActivity extends ActionBarActivity {
             Bitmap mphoto = (Bitmap) data.getExtras().get("data");
             capturedImage.setImageBitmap(mphoto);
             String fname = ImageUtilities.saveImage(mphoto,getApplicationContext());
+            captureImplicitContext();
         }
+    }
+
+    public ArrayList<String> captureImplicitContext(){
+        LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        Location location = lm.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        double longitude = location.getLongitude();
+        double latitude = location.getLatitude();
+        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        ArrayList<String> res = new ArrayList<String>();
+        res.add(String.valueOf(latitude));
+        res.add(String.valueOf(longitude));
+        res.add(currentDateTimeString);
+        return res;
     }
 
     @Override
