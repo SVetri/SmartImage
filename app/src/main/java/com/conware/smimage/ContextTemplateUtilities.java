@@ -15,7 +15,7 @@ import java.util.ArrayList;
  */
 public class ContextTemplateUtilities {
 
-    final static String SHARED_PREF_KEY = "contextTemplates";
+    final static String SHARED_PREF_KEY = "Templates";
     final static String DEFAULT_PREF_VALUE = "Error";
     final static String ATTR_LIST_TAG = "attribute_list";
 

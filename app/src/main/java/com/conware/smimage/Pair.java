@@ -3,8 +3,7 @@ package com.conware.smimage;
 /**
  * Created by Krishnan R on 4/17/2016.
  */
-public class Pair{
-
+public class Pair {
     private final String left;
     private final String right;
 
@@ -26,5 +25,4 @@ public class Pair{
         return this.left.equals(pairo.getLeft()) &&
                 this.right.equals(pairo.getRight());
     }
-
 }
